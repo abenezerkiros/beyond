@@ -130,7 +130,7 @@ const Forms = () => {
                                     </div>
                               
                                     <div className="col-md-6 text-right">
-                                        <input type="submit" name="submit" value="Send Message" />
+                                        <input type="submit" name="submit" value="Sign in" />
                                     </div>
                                 </form>
                                 {error &&        <div className="accrodion-inner">
