@@ -112,7 +112,7 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <Error />
+        element: <HomeOne />
       },
     ]
   }
