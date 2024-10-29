@@ -1,0 +1,208 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background-color: #f1f3f7; /* Gray background for the whole page */
+}
+
+/* Layout */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh; /* Ensures full height of the viewport */
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  width: 250px;
+  background-color: #1d1e2c;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #f8b400;
+}
+
+.sidebar nav {
+  width: 100%;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background 0.3s;
+}
+
+.sidebar nav a:hover {
+  background-color: #2b2d42;
+}
+
+/* Top Bar */
+.top-bar {
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.top-bar h2 {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.top-bar .user-info {
+  font-size: 1em;
+  color: #666;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f3f7; /* Gray background for the content area */
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f1f3f7; /* Matches the background */
+}
+
+/* Project Cards */
+.project-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.project-card h4 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: #555;
+  font-size: 0.95em;
+}
+
+/* Complaint Section */
+.complaint-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  resize: vertical;
+}
+
+.complaint-section button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.complaint-section button:hover {
+  background-color: #0056b3;
+}
+
+/* Payment Details Section */
+.payment-details-section {
+  background-color: #e9ecef;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.payment-details-section form label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+.payment-details-section form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.payment-info p {
+  font-size: 1em;
+  margin: 5px 0;
+  color: #444;
+}
+
+/* Complaint Card */
+.complaint-card {
+  background-color: #f9f9f9; /* Default light background */
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  border: 1px solid #ddd;
+}
+
+/* Light red background for submitted complaints */
+.complaint-card.submitted {
+  background-color: #ffe5e5; /* Very light red background */
+}
+
+.complaint-card textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+.complaint-card button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.complaint-card button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .top-bar {
+    justify-content: center;
+  }
+  .content {
+    padding: 10px;
+  }
+}

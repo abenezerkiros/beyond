@@ -21,7 +21,7 @@ import AboutUsTwo from "./components/AboutUs/AboutUsTwo.jsx";
 import Shops from "./components/Shops/index.jsx";
 import ShopDetails from './components/Shops/Details';
 import Layout from "./components/Helper/Layout.jsx";
-
+import CreateProject from "./CreateProject"
 const router = createBrowserRouter([
   {
     path:'/',
@@ -109,6 +109,10 @@ const router = createBrowserRouter([
       },{
         path: "/dashboard",
         element: <Dashboard />
+      },
+      {
+        path: "/create-project",
+        element: <CreateProject />
       },
       {
         path: "*",
