@@ -27,7 +27,7 @@ const FormsLogin = () => {
         });
       }
     } catch (err) {
-      setError(err.message);
+      setError("wrong email or password, Please Try agin");
     }
   };
 

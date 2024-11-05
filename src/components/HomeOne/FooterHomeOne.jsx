@@ -61,9 +61,6 @@ function FooterHomeOne({ className }) {
                                         <a href="#">Case Studies</a>
                                     </li>
                                     <li>
-                                        <Link >Blog</Link>
-                                    </li>
-                                    <li>
                                         <Link>Contact</Link>
                                     </li>
                                 </ul>
@@ -73,9 +70,6 @@ function FooterHomeOne({ className }) {
                             <div className="footer-navigation">
                                 <h4 className="title">Support</h4>
                                 <ul>
-                                    <li>
-                                        <Link>Community</Link>
-                                    </li>
                                     <li>
                                         <a href="#">Resources</a>
                                     </li>

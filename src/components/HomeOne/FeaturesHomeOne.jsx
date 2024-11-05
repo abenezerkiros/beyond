@@ -229,15 +229,7 @@ function FeaturesHomeOne({ className }) {
                     </div>
                 </div>
             </div>
-            <div className="features-shape-1">
-                <img src={shapeSix} alt="" />
-            </div>
-            <div className="features-shape-2">
-                <img src={shapeSeven} alt="" />
-            </div>
-            <div className="features-shape-3">
-                <img src={shapeEight} alt="" />
-            </div>
+
         </section>
     );
 }

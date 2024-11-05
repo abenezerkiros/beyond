@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Forms = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState(""); // New state for confirm password
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [accountType, setAccountType] = useState("customer"); // Default to customer
@@ -15,6 +16,12 @@ const Forms = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+    
     try {
       // Create user with email and password
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -92,6 +99,16 @@ const Forms = () => {
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <input
+                      name="confirmPassword"
+                      placeholder="Confirm Password"
+                      type="password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                       required
                     />
                   </div>

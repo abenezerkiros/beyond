@@ -44,8 +44,8 @@ function ServicesHomeOne({ className }) {
                                 <i className='fas fa-briefcase'/>
                                 <span>2</span>
                             </div>
-                            <h4 className="appie-title">Commercial Interior Design</h4>
-                            <p>Create inspiring workspaces that boost productivity and leave a lasting impression on clients and employees alike.</p>
+                            <h4 className="appie-title">Outdoor and Landscape Design</h4>
+                            <p>Planning stylish outdoor living areas. eveloping landscape and outdoor lighting plans to enhance outdoor areas.</p>
                         </div>
                     </div>
                     <div className="col-lg-3 col-md-6">

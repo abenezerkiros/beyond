@@ -1399,7 +1399,7 @@ p {
     3.APPIE HERO css 
 ===========================*/
 .appie-hero-area {
-  padding-top: 200px;
+  padding-top: 100px;
   padding-bottom: 110px;
   overflow: hidden;
   position: relative;
@@ -2927,12 +2927,14 @@ p {
   .appie-features-thumb {
     text-align: center;
     margin-top: 50px;
+    display: none;
   }
 }
 @media (max-width: 767px) {
   .appie-features-thumb {
     text-align: center;
     margin-top: 50px;
+    display: none;
   }
 }
 

@@ -148,10 +148,10 @@ function TeamHomeOne({ className }) {
                         </div>
                         <div className="col-lg-12">
                             <div className="team-btn text-center mt-50">
-                                <a className="main-btn" href="#">
+                                <div className="main-btn">
                                     {' '}
-                                    View all Members <i className="fal fa-arrow-right" />
-                                </a>
+                                    our partners
+                                </div>
                             </div>
                         </div>
                     </div>
