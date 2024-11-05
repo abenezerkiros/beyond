@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { auth, db } from "../../firebase"; // Firebase imports
 import { doc, setDoc } from "firebase/firestore"; // Firestore methods
 import { Link, useNavigate } from "react-router-dom";
@@ -12,6 +12,7 @@ const Forms = () => {
   const [description, setDescription] = useState("");
   const [accountType, setAccountType] = useState("customer"); // Default to customer
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -33,10 +34,16 @@ const Forms = () => {
         email,
         description,
         accountType,
+        emailVerified: false, 
       });
 
-      setError("User registered and data saved successfully!");
-      navigate("/login");
+      // Send verification email
+      await sendEmailVerification(user);
+      setMessage("Sign-up successful! A verification email has been sent. Please verify your email before logging in.");
+
+
+
+
     } catch (err) {
       setError(err.message);
     }
@@ -77,6 +84,7 @@ const Forms = () => {
                   <div className="col-md-6">
                     <input
                       type="text"
+                      name="email"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
@@ -86,6 +94,7 @@ const Forms = () => {
                   <div className="col-md-6">
                     <input
                       type="email"
+                      name="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
@@ -134,7 +143,7 @@ const Forms = () => {
                   </div>
                   <div className="col-md-6">
                     <div className="condition-check">
-                      <input id="terms-conditions" type="checkbox" required />
+                      <input id="terms-conditions" type="checkbox" name="terms" required />
                       <label htmlFor="terms-conditions">
                         I agree to the <a href="#">Terms & Conditions</a>
                       </label>
@@ -148,6 +157,13 @@ const Forms = () => {
                   <div className="accordion-inner">
                     <div className="accordion-title">
                       <h4>{error}</h4>
+                    </div>
+                  </div>
+                )}
+                {message && (
+                  <div className="accordion-inner">
+                    <div className="accordion-title">
+                      <h4>{message}</h4>
                     </div>
                   </div>
                 )}

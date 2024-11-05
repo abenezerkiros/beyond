@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ const FormsLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -15,6 +16,16 @@ const FormsLogin = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
+
+      // Check if the user's email is verified
+      if (!user.emailVerified) {
+        setError("Please verify your email before logging in.");
+        
+        // Optionally, resend verification email if not verified
+        await sendEmailVerification(user);
+        setMessage("A new verification email has been sent to your inbox.");
+        return;
+      }
 
       // Fetch additional user data (like accountType)
       const userDoc = await getDoc(doc(db, "users", user.uid));
@@ -27,13 +38,13 @@ const FormsLogin = () => {
         });
       }
     } catch (err) {
-      setError("wrong email or password, Please Try agin");
+      setError("Wrong email or password. Please try again.");
     }
   };
 
   return (
     <>
-      <header className={`appie-header-area appie-sticky`}>
+      <header className="appie-header-area appie-sticky">
         <div className="container">
           <div className="header-nav-box">
             <div className="row align-items-center">
@@ -89,7 +100,9 @@ const FormsLogin = () => {
                         I agree to the <a href="#">Terms & Conditions</a>
                       </label>
                     </div>
+                    <Link to="/forgot-password">Forgot Password?</Link>
                   </div>
+                  
                   <div className="col-md-6 text-right">
                     <input type="submit" name="submit" value="Login" />
                   </div>
@@ -97,7 +110,14 @@ const FormsLogin = () => {
                 {error && (
                   <div className="accordion-inner">
                     <div className="accordion-title">
-                      <h4>{error}</h4>
+                      <h4 style={{ color: "red" }}>{error}</h4>
+                    </div>
+                  </div>
+                )}
+                {message && (
+                  <div className="accordion-inner">
+                    <div className="accordion-title">
+                      <h4>{message}</h4>
                     </div>
                   </div>
                 )}
